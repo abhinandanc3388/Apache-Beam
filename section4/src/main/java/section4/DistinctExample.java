@@ -30,11 +30,11 @@ public class DistinctExample {
 
         Pipeline p = Pipeline.create();
 
-        PCollection<String> pCustList = p.apply(TextIO.read().from("src/main/resources/input/Distinct.csv"));
+        PCollection<String> pCustList = p.apply(TextIO.read().from("section4/src/main/resources/input/Distinct.csv"));
 
         PCollection<String> uniqueCust=pCustList.apply(Distinct.<String>create());
 
-        uniqueCust.apply(TextIO.write().to("src/main/resources/output/distinct_out.csv").withNumShards(1).withSuffix(".csv"));
+        uniqueCust.apply(TextIO.write().to("section4/src/main/resources/output/distinct_out.csv").withNumShards(1).withSuffix(".csv"));
 
         p.run();
     }

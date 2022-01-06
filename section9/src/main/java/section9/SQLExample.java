@@ -38,7 +38,7 @@ public class SQLExample {
         Pipeline pipeline = Pipeline.create();
 //		Step 1 : Read csv file.
 
-        PCollection<String> fileInput= pipeline.apply(TextIO.read().from("C:\\Beam\\user_order.csv"));
+        PCollection<String> fileInput= pipeline.apply(TextIO.read().from("section9/src/main/resources/user_order.csv"));
 
 //		Step 2 : Convert PCollection<String> to PCollection<Row>
 
@@ -53,7 +53,7 @@ public class SQLExample {
 
         PCollection<String> pOutput = sqlInput.apply(ParDo.of(new RowToString()));
 
-        pOutput.apply(TextIO.write().to("C:\\Beam\\sql_output.csv").withNumShards(1).withSuffix(".csv"));
+        pOutput.apply(TextIO.write().to("section9/src/main/resources/sql_output.csv").withNumShards(1).withSuffix(".csv"));
 
         pipeline.run();
     }

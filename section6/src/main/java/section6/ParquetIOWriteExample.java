@@ -46,7 +46,7 @@ public class ParquetIOWriteExample {
 
         Schema schema = BeamCustUtil.getSchema();
 
-        PCollection<GenericRecord> poutput=p.apply(ParquetIO.read(schema).from("src/main/resources/output-00000-of-00001.parquet"));
+        PCollection<GenericRecord> poutput=p.apply(ParquetIO.read(schema).from("section6/src/main/resources/output-00000-of-00001.parquet"));
 
         poutput.apply(MapElements.via(new PrintElem()));
 

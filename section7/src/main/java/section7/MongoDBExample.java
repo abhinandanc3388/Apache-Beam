@@ -18,7 +18,7 @@ public class MongoDBExample {
 
         Pipeline p = Pipeline.create();
 
-        PCollection<String> pInput = p.apply(TextIO.read().from("C:\\Beam\\user.csv"));
+        PCollection<String> pInput = p.apply(TextIO.read().from("section7/src/main/resources/user_.csv"));
 
         PCollection<Document> pDocument = pInput.apply(ParDo.of(new DoFn<String, Document>() {
 

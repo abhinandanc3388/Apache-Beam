@@ -66,11 +66,11 @@ public class ParquetIOExample {
 
         Schema schema = BeamCustUtil.getSchema();
 
-        PCollection<GenericRecord> pOutput=p.apply(TextIO.read().from("src/main/resources/user.csv"))
+        PCollection<GenericRecord> pOutput=p.apply(TextIO.read().from("section6/src/main/resources/user.csv"))
                 .apply(MapElements.via(new ConvertCsvToGeneric()))
                 .setCoder(AvroCoder.of(GenericRecord.class, schema));
 
-        pOutput.apply(FileIO.<GenericRecord>write().via(ParquetIO.sink(schema)).to("src/main/resources/parquetexample.parquet")
+        pOutput.apply(FileIO.<GenericRecord>write().via(ParquetIO.sink(schema)).to("section6/src/main/resources/parquetexample.parquet")
                 .withNumShards(1).withSuffix(".parquet"));
 
 

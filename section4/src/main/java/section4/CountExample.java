@@ -15,7 +15,7 @@ public class CountExample {
 
         Pipeline p = Pipeline.create();
 
-        PCollection<String> pCount = p.apply(TextIO.read().from("src/main/resources/input/Count.csv"));
+        PCollection<String> pCount = p.apply(TextIO.read().from("section4/src/main/resources/input/Count.csv"));
 
         PCollection<Long> pLong = pCount.apply(Count.globally());
 

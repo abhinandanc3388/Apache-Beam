@@ -54,8 +54,8 @@ public class SQLJoinExample {
 
 //		Step 1 : Read csv file.
 
-        PCollection<String> order= pipeline.apply(TextIO.read().from("C:\\Beam\\user_order.csv"));
-        PCollection<String> user= pipeline.apply(TextIO.read().from("C:\\Beam\\p_user.csv"));
+        PCollection<String> order= pipeline.apply(TextIO.read().from("section9/src/main/resources/user_order.csv"));
+        PCollection<String> user= pipeline.apply(TextIO.read().from("section9/src/main/resources/p_user.csv"));
 
 
 //		Step 2 : Convert PCollection<String> to PCollection<Row>
@@ -78,7 +78,7 @@ public class SQLJoinExample {
 
         PCollection<String> pOutput = sqlInput.apply(ParDo.of(new RowToString()));
 
-        pOutput.apply(TextIO.write().to("C:\\Beam\\sql_join_output.csv").withNumShards(1).withSuffix(".csv"));
+        pOutput.apply(TextIO.write().to("section9/src/main/resources/sql_join_output.csv").withNumShards(1).withSuffix(".csv"));
 
         pipeline.run();
     }

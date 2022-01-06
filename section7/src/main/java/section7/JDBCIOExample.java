@@ -38,7 +38,7 @@ public class JDBCIOExample {
         );
 
 
-        poutput.apply(TextIO.write().to("C:\\Beam\\jdbc_output.csv").withNumShards(1).withSuffix(".csv"));
+        poutput.apply(TextIO.write().to("section7/src/main/resources/jdbc_output.csv").withNumShards(1).withSuffix(".csv"));
 
         p.run();
     }

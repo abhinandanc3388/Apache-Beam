@@ -49,7 +49,7 @@ public class GroupByKeyExample {
         Pipeline p = Pipeline.create();
 
         // Step 1
-        PCollection<String> pCustOrderList = p.apply(TextIO.read().from("src/main/resources/input/GroupByKey_data.csv"));
+        PCollection<String> pCustOrderList = p.apply(TextIO.read().from("section4/src/main/resources/input/GroupByKey_data.csv"));
 
         // Step 2 : Convert String to KV
 
@@ -65,7 +65,7 @@ public class GroupByKeyExample {
 
         PCollection<String> output = kvOrder2.apply(ParDo.of(new KVToString()));
 
-        output.apply(TextIO.write().to("src/main/resources/output/group_by_output.csv").withHeader("Id,Amount").withNumShards(1).withSuffix(".csv"));
+        output.apply(TextIO.write().to("section4/src/main/resources/output/group_by_output.csv").withHeader("Id,Amount").withNumShards(1).withSuffix(".csv"));
 
         p.run();
     }

@@ -44,10 +44,10 @@ public class LeftJoinExample {
 
         // Step 1 : Convert String to KV object.
 
-        PCollection<KV<String,String>> pOrderCollection = p.apply(TextIO.read().from("src/main/resources/input/user_order.csv"))
+        PCollection<KV<String,String>> pOrderCollection = p.apply(TextIO.read().from("section5/src/main/resources/input/user_order.csv"))
                 .apply(ParDo.of(new LeftOrderParsing()));
 
-        PCollection<KV<String,String>> pUserCollection = p.apply(TextIO.read().from("src/main/resources/input/p_user.csv"))
+        PCollection<KV<String,String>> pUserCollection = p.apply(TextIO.read().from("section5/src/main/resources/input/p_user.csv"))
                 .apply(ParDo.of(new LeftUserParsing()));
 
 
@@ -94,7 +94,7 @@ public class LeftJoinExample {
 
 
         // Step 5 : save the result
-        output.apply(TextIO.write().to("src/main/resources/output/left_join_example.csv").withNumShards(1).withSuffix(".csv"));
+        output.apply(TextIO.write().to("section5/src/main/resources/output/left_join_example.csv").withNumShards(1).withSuffix(".csv"));
         p.run();
 
     }
