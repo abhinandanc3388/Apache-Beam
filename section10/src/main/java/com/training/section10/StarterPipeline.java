@@ -55,7 +55,9 @@ import com.google.api.services.bigquery.model.TableSchema;
  */
 public class StarterPipeline {
     private static final Logger LOG = LoggerFactory.getLogger(StarterPipeline.class);
-
+    public void test(){
+        System.out.println("prismTest222");
+    }
     public static void main(String[] args) {
 
 
