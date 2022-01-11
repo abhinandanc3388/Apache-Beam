@@ -9,5 +9,9 @@ public interface MyOption extends DataflowPipelineOptions {
         System.out.println("hello");
     }
 
+    public void prismTest(){
+        System.out.println("prismTest");
+    }
+
 }
 
